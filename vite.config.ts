@@ -16,9 +16,10 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     React(),
     AutoImport({
-      dts: "./src/types/auto-imports.d.ts",
+      dts: "types/auto-imports.d.ts",
       eslintrc: {
         enabled: !0,
+        globalsPropValue: "readonly",
       },
       imports: [
         "react",
