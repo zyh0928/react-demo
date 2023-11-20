@@ -12,7 +12,10 @@
     "moduleResolution": "Node",
     "noEmit": true,
     "paths": {
-      "@/*": ["src/*"]
+      "#/*": ["src/components/*"],
+      "$/*": ["src/service/*"],
+      "@/*": ["src/*"],
+      "~/*": ["src/assets/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

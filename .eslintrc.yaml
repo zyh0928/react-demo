@@ -58,6 +58,9 @@ rules:
         - group: external
           pattern: "@/**"
           position: after
+        - group: external
+          pattern: "[#,$,~]/**"
+          position: after
   react/jsx-no-undef:
     - 2
     - allowGlobals: true

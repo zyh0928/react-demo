@@ -32,7 +32,10 @@ export default defineConfig(({ mode }) => ({
   ],
   resolve: {
     alias: {
+      "#": resolve(__dirname, "src/components"),
+      $: resolve(__dirname, "src/service"),
       "@": resolve(__dirname, "src"),
+      "~": resolve(__dirname, "src/assets"),
     },
   },
   server: {

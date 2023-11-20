@@ -1,3 +1,10 @@
 # Vite Demo
 
-React 18
+## Path Alias
+
+| Alias | Path           |
+| ----- | -------------- |
+| @/\*  | src/\*         |
+| #/\*  | src/components/\*   |
+| $/\*  | src/service/\* |
+| ~/\*  | src/assets/\*  |
