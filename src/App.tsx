@@ -2,8 +2,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { Outlet } from "react-router-dom";
 
-import { MyHeader, MySidebar } from "@/components";
 import { themes } from "@/styles";
+
+import MyHeader from "#/MyHeader";
+import MySidebar from "#/MySidebar";
 
 import type { FC } from "react";
 

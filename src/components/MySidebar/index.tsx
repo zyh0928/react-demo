@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { v4 } from "uuid";
 
-import { sidebarWidth } from "@/assets/variables.json";
+import { sidebarWidth } from "~/variables.json";
 
 import MenuItem from "./components/MenuItem";
 import menus from "./props/menus";
