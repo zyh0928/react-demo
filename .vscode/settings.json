@@ -1,0 +1,29 @@
+{
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "eslint.validate": [
+    "github-actions-workflow",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescript",
+    "typescriptreact",
+    "yaml"
+  ],
+  "i18n-ally.displayLanguage": "en",
+  "i18n-ally.enabledFrameworks": ["react", "vue"],
+  "i18n-ally.enabledParsers": ["yaml"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": ["src/locales"],
+  "i18n-ally.namespace": true,
+  "i18n-ally.pathMatcher": "{locale}.yaml",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.sourceLanguage": "zh",
+  "i18n-ally.theme.annotation": "#6a4c9c",
+  "i18n-ally.theme.annotationBorder": "rgba(106, 76, 156, 0.5)",
+  "i18n-ally.theme.annotationMissing": "#cb1b45",
+  "i18n-ally.theme.annotationMissingBorder": "rgba(203, 27, 69, 0.5)",
+  "yaml.schemas": {
+    "src/types/schema/i18n.json": "src/locales/*.yaml"
+  }
+}

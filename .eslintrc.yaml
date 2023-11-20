@@ -1,0 +1,86 @@
+env:
+  browser: true
+  es2021: true
+  jest: true
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:prettier/recommended
+  - plugin:import/recommended
+  - plugin:import/typescript
+  - plugin:yml/standard
+  - plugin:yml/prettier
+  - plugin:react/recommended
+  - plugin:react-hooks/recommended
+  - .eslintrc-auto-import.json
+overrides:
+  - files:
+      - "*.yaml"
+      - "*.yml"
+    parser: yaml-eslint-parser
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - simple-import-sort
+  - sort-destructure-keys
+  - sort-keys-fix
+  - typescript-sort-keys
+root: true
+rules:
+  # off rules
+  "@typescript-eslint/ban-ts-comment": 0
+  react/react-in-jsx-scope: 0
+
+  # error rules
+  import/first: 2
+  import/newline-after-import: 2
+  import/order:
+    - 2
+    - alphabetize:
+        order: asc
+      distinctGroup: true
+      groups:
+        - builtin
+        - external
+        - parent
+        - sibling
+        - internal
+        - index
+        - object
+        - type
+        - unknown
+      newlines-between: always
+      pathGroups:
+        - group: external
+          pattern: "@/**"
+          position: after
+  react/jsx-no-undef:
+    - 2
+    - allowGlobals: true
+  simple-import-sort/exports: 2
+  sort-imports:
+    - 2
+    - ignoreDeclarationSort: true
+  yml/file-extension: 2
+
+  # warn rules
+  react/jsx-sort-props: 1
+  sort-destructure-keys/sort-destructure-keys: 1
+  sort-keys-fix/sort-keys-fix: 1
+  typescript-sort-keys/interface: 1
+  typescript-sort-keys/string-enum: 1
+  yml/sort-keys:
+    - 1
+    - asc
+    - allowLineSeparatedGroups: true
+
+  # customize
+  no-console: 1
+settings:
+  import/resolver:
+    node: true
+    typescript: true

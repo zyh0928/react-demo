@@ -1,0 +1,21 @@
+# production
+react-demo/
+
+# editor directories and files
+.idea/
+
+# dependencies
+node_modules/
+
+# log files
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store/
+.env.local
+.env.*.local
