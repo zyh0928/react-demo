@@ -10,7 +10,11 @@ import mui from "./build/resolvers/mui";
 export default defineConfig(({ mode }) => ({
   base: loadEnv(mode, process.cwd(), "BASE_URL").BASE_URL,
   build: {
-    outDir: "react-demo",
+    terserOptions: {
+      compress: {
+        drop_console: !0,
+      },
+    },
   },
   envPrefix: "DEMO_",
   plugins: [

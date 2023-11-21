@@ -1,5 +1,5 @@
 # production
-react-demo/
+dist/
 
 # editor directories and files
 .idea/
