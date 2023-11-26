@@ -1,5 +1,11 @@
 import createTheme from "@mui/material/styles/createTheme";
 
+import type { ThemeOptions } from "@mui/material/styles";
+
+const typography: ThemeOptions["typography"] = {
+  fontFamily: "Ubuntu, Noto Sans SC, sans-serif",
+};
+
 export const light = createTheme({
   palette: {
     background: {
@@ -34,10 +40,12 @@ export const light = createTheme({
       main: "#ffb11b",
     },
   },
+  typography,
 });
 
 export const dark = createTheme({
   palette: {
     mode: "dark",
   },
+  typography,
 });

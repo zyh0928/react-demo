@@ -2,6 +2,7 @@ import { resolve } from "path";
 
 import React from "@vitejs/plugin-react";
 import AutoImport from "unplugin-auto-import/vite";
+import Unfonts from "unplugin-fonts/vite";
 import { defineConfig, loadEnv } from "vite";
 
 import mui from "./build/resolvers/mui";
@@ -9,16 +10,8 @@ import mui from "./build/resolvers/mui";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: loadEnv(mode, process.cwd(), "BASE_URL").BASE_URL,
-  build: {
-    terserOptions: {
-      compress: {
-        drop_console: !0,
-      },
-    },
-  },
   envPrefix: "DEMO_",
   plugins: [
-    React(),
     AutoImport({
       dts: "types/auto-imports.d.ts",
       eslintrc: {
@@ -34,6 +27,24 @@ export default defineConfig(({ mode }) => ({
         },
       ],
     }),
+    React(),
+    Unfonts({
+      google: {
+        display: "block",
+        families: [
+          {
+            name: "Ubuntu",
+            styles: "wght@100;300;400;500;700;900",
+          },
+          {
+            name: "Noto Sans SC",
+            styles: "wght@100;300;400;500;700;900",
+          },
+        ],
+        injectTo: "body",
+        preconnect: !0,
+      },
+    }),
   ],
   resolve: {
     alias: {
@@ -44,24 +55,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   server: {
+    host: !0,
     port: 9029,
-    proxy: {
-      "/cat-api": {
-        changeOrigin: !0,
-        rewrite: (path) => path.replace(/^\/cat-api/, ""),
-        target: "https://api.thecatapi.com",
-      },
-      "/dog-api": {
-        changeOrigin: !0,
-        rewrite: (path) => path.replace(/^\/dot-api/, ""),
-        target: "http://shibe.online/api",
-      },
-      "/ovooa-api": {
-        changeOrigin: !0,
-        rewrite: (path) => path.replace(/^\/ovooa-api/, ""),
-        target: "https://ovooa.com/API",
-      },
-    },
     strictPort: !0,
   },
 }));
