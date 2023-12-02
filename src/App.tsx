@@ -4,8 +4,8 @@ import { Outlet } from "react-router-dom";
 
 import { themes } from "@/styles";
 
-import MyHeader from "#/MyHeader";
-import MySidebar from "#/MySidebar";
+import Header from "#/HeadBar";
+import Sidebar from "#/Sidebar";
 
 import type { FC } from "react";
 
@@ -36,11 +36,11 @@ const Container = styled(Box)(({ theme }) => ({
 const Content = styled(Box)(({ theme }) => ({
   gridArea: "content",
   overflow: "hidden auto",
-  padding: theme.spacing(2, 3),
+  padding: theme.spacing(3),
 }));
 
 const App: FC = () => {
-  const [open, toggleDrawer] = useToggle(!0);
+  const [open, toggleSide] = useToggle(!0);
 
   const [mode, setMode] = useState<ThemeMode>("light");
 
@@ -61,11 +61,11 @@ const App: FC = () => {
       <CssBaseline />
 
       <Container>
-        <MyHeader mode={mode} setMode={setMode} toggleDrawer={toggleDrawer} />
+        <Header mode={mode} setMode={setMode} toggleSide={toggleSide} />
 
-        <MySidebar open={open} />
+        <Sidebar open={open} />
 
-        <Content>
+        <Content component="main">
           <Outlet />
         </Content>
       </Container>

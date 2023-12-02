@@ -2,13 +2,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import TranslateIcon from "@mui/icons-material/Translate";
 import AppBar from "@mui/material/AppBar";
 import { blue, yellow } from "@mui/material/colors";
-import useMeasure from "react-use-measure";
 
 import type { FC } from "react";
 
-const ModeSwitch = styled(Switch, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme }) => ({
+const Header = styled(AppBar)({
+  gridArea: "header",
+});
+
+const ModeSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase": {
     "&.Mui-checked": {
       "& + .MuiSwitch-track": {
@@ -55,47 +56,41 @@ const ModeSwitch = styled(Switch, {
   width: 62,
 }));
 
-interface MyheaderProps {
+interface HeaderBarProps {
   mode: ThemeMode;
   setMode: (mode: ThemeMode) => void;
-  toggleDrawer: () => void;
+  toggleSide: () => void;
 }
 
-const MyHeader: FC<MyheaderProps> = ({ mode, setMode, toggleDrawer }) => {
-  const [ref, { height }] = useMeasure();
+const HeaderBar: FC<HeaderBarProps> = ({ mode, setMode, toggleSide }) => (
+  <Header position="relative">
+    <Toolbar variant="dense">
+      <IconButton
+        aria-label="open drawer"
+        color="inherit"
+        edge="start"
+        onClick={toggleSide}
+        sx={{ mr: 3 }}
+      >
+        <MenuIcon />
+      </IconButton>
 
-  return (
-    <Box sx={{ gridArea: "header", height }}>
-      <AppBar ref={ref}>
-        <Toolbar variant="dense">
-          <IconButton
-            aria-label="open drawer"
-            color="inherit"
-            edge="start"
-            onClick={toggleDrawer}
-            sx={{ mr: 3 }}
-          >
-            <MenuIcon />
-          </IconButton>
+      <Typography flexGrow="1" noWrap variant="h5">
+        REACT DEMO
+      </Typography>
 
-          <Typography component="h1" noWrap sx={{ flexGrow: 1 }} variant="h6">
-            REACT DEMO
-          </Typography>
+      <Stack alignItems="center" direction="row" spacing={3} useFlexGap>
+        <ModeSwitch
+          checked={mode === "dark"}
+          onChange={(_, checked) => setMode(checked ? "dark" : "light")}
+        />
 
-          <Stack alignItems="center" direction="row" spacing={3} useFlexGap>
-            <ModeSwitch
-              checked={mode === "dark"}
-              onChange={(_, checked) => setMode(checked ? "dark" : "light")}
-            />
+        <IconButton color="inherit">
+          <TranslateIcon />
+        </IconButton>
+      </Stack>
+    </Toolbar>
+  </Header>
+);
 
-            <IconButton color="inherit">
-              <TranslateIcon />
-            </IconButton>
-          </Stack>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
-};
-
-export default MyHeader;
+export default HeaderBar;

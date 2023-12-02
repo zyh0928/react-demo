@@ -10,10 +10,10 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <GlobalStyles styles={root} />
 
-    <RouterProvider fallbackElement={<p>Loading...</p>} router={router} />
+    <RouterProvider fallbackElement="Loading..." router={router} />
   </StrictMode>,
 );
 
 if (import.meta.hot) {
-  import.meta.hot.dispose(() => router.dispose());
+  import.meta.hot.dispose(router.dispose);
 }

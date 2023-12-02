@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => ({
         families: [
           {
             name: "Ubuntu",
-            styles: "wght@100;300;400;500;700;900",
+            styles: "wght@300;400;500;700",
           },
           {
             name: "Noto Sans SC",
