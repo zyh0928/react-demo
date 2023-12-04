@@ -43,5 +43,6 @@ declare global {
   const useTitle: typeof import('react-use')['useTitle']
   const useToggle: typeof import('react-use')['useToggle']
   const useTransition: typeof import('react')['useTransition']
+  const useTranslation: typeof import('react-i18next')['useTranslation']
   const useUpdateEffect: typeof import('react-use')['useUpdateEffect']
 }

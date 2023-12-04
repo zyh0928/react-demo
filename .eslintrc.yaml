@@ -59,7 +59,7 @@ rules:
           pattern: "@/**"
           position: after
         - group: external
-          pattern: "[#,$,~]/**"
+          pattern: "[#,$,%,~]/**"
           position: after
   react/jsx-no-undef:
     - 2

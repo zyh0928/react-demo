@@ -1,10 +1,11 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import App from "@/App";
-import About from "@/views/about";
-import NotFound from "@/views/error/NotFound";
-import Home from "@/views/home";
-import Node, { NodeOne, NodeTwo } from "@/views/node";
+
+import About from "%/about";
+import NotFound from "%/error/NotFound";
+import Home from "%/home";
+import Node, { NodeOne, NodeTwo } from "%/node";
 
 import type { RouteObject } from "react-router-dom";
 

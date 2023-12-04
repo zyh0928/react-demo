@@ -9,9 +9,11 @@ Set `Disabled`
 
 ## Path Alias
 
-| Alias | Path           |
-| ----- | -------------- |
-| @/\*  | src/\*         |
-| #/\*  | src/components/\*   |
-| $/\*  | src/service/\* |
-| ~/\*  | src/assets/\*  |
+| Alias | Path              |
+| ----- | ----------------- |
+| @@/\* | ./\*              |
+| @/\*  | src/\*            |
+| %/\*  | src/pages/\*      |
+| #/\*  | src/components/\* |
+| $/\*  | src/service/\*    |
+| ~/\*  | src/assets/\*     |

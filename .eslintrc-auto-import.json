@@ -38,6 +38,7 @@
     "useTitle": "readonly",
     "useToggle": "readonly",
     "useTransition": "readonly",
+    "useTranslation": "readonly",
     "useUpdateEffect": "readonly"
   }
 }

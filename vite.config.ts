@@ -50,7 +50,9 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "#": resolve(__dirname, "src/components"),
       $: resolve(__dirname, "src/service"),
+      "%": resolve(__dirname, "src/pages"),
       "@": resolve(__dirname, "src"),
+      "@@": resolve(__dirname, "."),
       "~": resolve(__dirname, "src/assets"),
     },
   },
