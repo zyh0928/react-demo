@@ -1,0 +1,9 @@
+common:
+  error:
+    "404": 页面未找到
+    "500": 内部服务器错误
+pages:
+  home:
+    title: 家！
+validations:
+  required: "{field}不能为空"

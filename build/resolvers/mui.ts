@@ -9,6 +9,8 @@ export default [
   "ListItemButton",
   "ListItemIcon",
   "ListItemText",
+  "Menu",
+  "MenuItem",
   "Stack",
   "Switch",
   "Toolbar",

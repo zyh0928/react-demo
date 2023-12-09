@@ -1,6 +1,6 @@
 import { dark, light } from "./_theme";
 
-import type { Theme } from "@mui/material/styles";
+import type { ThemeOptions } from "@mui/material/styles";
 import type { CSSProperties } from "react";
 
 export const root: Recordable<CSSProperties> = {
@@ -9,7 +9,7 @@ export const root: Recordable<CSSProperties> = {
   },
 };
 
-export const themes: Record<ThemeMode, Theme> = {
+export const themes: Recordable<ThemeOptions> = {
   dark,
   light,
 };

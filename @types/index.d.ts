@@ -7,8 +7,6 @@ declare global {
 
   type Nullable<T = string> = T | null | undefined;
 
-  type ThemeMode = "light" | "dark";
-
   interface I18nType {
     en: string;
     zh: string;

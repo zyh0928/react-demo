@@ -1,15 +1,18 @@
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import { Link, useLocation } from "react-router-dom";
 
 import type { Dispatch, FC, SetStateAction } from "react";
 import type { LinkProps } from "react-router-dom";
 
-const MenuItem = styled(ListItem, {
-  shouldForwardProp: (prop) => prop !== "selected",
-})<Recordable & { selected: boolean }>(({ selected, theme: { palette } }) => ({
-  backgroundColor: selected ? palette.primary.main : "inherit",
-  color: selected ? palette.primary.contrastText : "inherit",
+const MenuItem = styled(ListItem)<Recordable>(({ theme: { palette } }) => ({
+  "&.active": {
+    ".MuiSvgIcon-root": {
+      color: palette.primary.contrastText,
+    },
+    backgroundColor: palette.primary.main,
+    color: palette.primary.contrastText,
+  },
+  color: "inherit",
   display: "block",
 }));
 
@@ -27,42 +30,36 @@ const MenuItemIcon = styled(ListItemIcon)(({ theme: { spacing } }) => ({
 }));
 
 const RouterLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => (
-  <Link ref={ref} {...props} role={void 0} />
+  <NavLink ref={ref} {...props} role={void 0} />
 ));
 
 interface MenuNodeProps {
-  expands?: string[];
+  expands: string[];
+  setExpands: Dispatch<SetStateAction<string[]>>;
   indent?: number;
   props?: MenuType;
   root?: string;
-  setExpands?: Dispatch<SetStateAction<string[]>>;
 }
 
 const MenuNode: FC<MenuNodeProps> = ({
   expands,
   indent = 0,
   props,
-  root = "/",
+  root,
   setExpands,
 }) => {
   const { children, icon: Icon, label, path } = props ?? {};
 
-  const {
-    palette: {
-      primary: { contrastText, main },
-    },
-  } = useTheme();
-
   const { pathname } = useLocation();
 
-  const to = useMemo(() => root + (path ?? ""), [path, root]);
-
   const isItem = useMemo(() => !children?.length, [children]);
+
+  const to = useMemo(() => `${root}/${path ?? ""}`, [root, path]);
 
   const selected = useMemo(() => pathname.includes(to), [pathname, to]);
 
   const expand = useMemo(
-    () => (!expands?.length ? selected : expands?.includes(to)),
+    () => (!expands.length ? selected : expands.includes(to)),
     [expands, selected, to],
   );
 
@@ -73,10 +70,10 @@ const MenuNode: FC<MenuNodeProps> = ({
   };
 
   return isItem ? (
-    <MenuItem component={RouterLink} disablePadding selected={selected} to={to}>
+    <MenuItem component={RouterLink} disablePadding to={to}>
       <MenuItemButton indent={indent}>
         <MenuItemIcon>
-          <Icon sx={{ color: selected ? contrastText : "inherit" }} />
+          <Icon />
         </MenuItemIcon>
 
         <ListItemText primary={label} />
@@ -87,13 +84,13 @@ const MenuNode: FC<MenuNodeProps> = ({
       <ListItem disablePadding sx={{ display: "block" }}>
         <MenuItemButton indent={indent} onClick={toggle}>
           <MenuItemIcon>
-            <Icon sx={{ color: selected ? main : void 0 }} />
+            <Icon sx={{ color: selected ? "primary.main" : void 0 }} />
           </MenuItemIcon>
 
           <ListItemText
             primary={label}
             sx={{
-              color: selected ? main : void 0,
+              color: selected ? "primary.main" : void 0,
             }}
           />
 
@@ -108,7 +105,7 @@ const MenuNode: FC<MenuNodeProps> = ({
             indent={indent + 1}
             key={idx}
             props={item}
-            root={to + "/"}
+            root={to}
             setExpands={setExpands}
           />
         ))}

@@ -1,0 +1,75 @@
+{
+  "$ref": "#/definitions/I18nSchema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Common": {
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/Error"
+        }
+      },
+      "required": ["error"],
+      "type": "object"
+    },
+    "Error": {
+      "additionalProperties": false,
+      "properties": {
+        "404": {
+          "type": "string"
+        },
+        "500": {
+          "type": "string"
+        }
+      },
+      "required": ["404", "500"],
+      "type": "object"
+    },
+    "Home": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": ["title"],
+      "type": "object"
+    },
+    "I18nSchema": {
+      "additionalProperties": false,
+      "properties": {
+        "common": {
+          "$ref": "#/definitions/Common"
+        },
+        "pages": {
+          "$ref": "#/definitions/Pages"
+        },
+        "validations": {
+          "$ref": "#/definitions/Validations"
+        }
+      },
+      "required": ["common", "pages", "validations"],
+      "type": "object"
+    },
+    "Pages": {
+      "additionalProperties": false,
+      "properties": {
+        "home": {
+          "$ref": "#/definitions/Home"
+        }
+      },
+      "required": ["home"],
+      "type": "object"
+    },
+    "Validations": {
+      "additionalProperties": false,
+      "properties": {
+        "required": {
+          "type": "string"
+        }
+      },
+      "required": ["required"],
+      "type": "object"
+    }
+  }
+}

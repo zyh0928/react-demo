@@ -1,25 +1,17 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
-
-import App from "@/App";
-
 import About from "%/about";
-import NotFound from "%/error/NotFound";
 import Home from "%/home";
 import Node, { NodeOne, NodeTwo } from "%/node";
 
 import type { RouteObject } from "react-router-dom";
 
-const children: RouteObject[] = [
-  {
-    element: <NotFound />,
-    path: "*",
-  },
+export default [
   {
     element: <Home />,
+    // index 与 path 互斥
     path: "home",
   },
   {
-    element: <Navigate replace={!0} to="/home" />,
+    element: <Navigate replace to="home" />,
     path: "",
   },
   {
@@ -37,24 +29,11 @@ const children: RouteObject[] = [
         path: "two",
       },
       {
-        element: <Navigate replace={!0} to="/node/two" />,
+        element: <Navigate replace to="two" />,
         path: "",
       },
     ],
     element: <Node />,
     path: "node",
   },
-];
-
-const routes = createBrowserRouter(
-  [
-    {
-      children,
-      element: <App />,
-      path: "/",
-    },
-  ],
-  { basename: import.meta.env.BASE_URL },
-);
-
-export default routes;
+] satisfies RouteObject[];

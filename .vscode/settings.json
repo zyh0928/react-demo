@@ -1,4 +1,7 @@
 {
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": true,
   "eslint.validate": [
@@ -10,12 +13,10 @@
     "typescriptreact",
     "yaml"
   ],
-  "i18n-ally.displayLanguage": "en",
-  "i18n-ally.enabledFrameworks": ["react", "vue"],
+  "i18n-ally.defaultNamespace": "pages",
+  "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.enabledParsers": ["yaml"],
-  "i18n-ally.keystyle": "nested",
-  "i18n-ally.localesPaths": ["locales"],
-  "i18n-ally.namespace": true,
+  "i18n-ally.localesPaths": "locales",
   "i18n-ally.pathMatcher": "{locale}.yaml",
   "i18n-ally.sortKeys": true,
   "i18n-ally.sourceLanguage": "zh",
@@ -24,6 +25,7 @@
   "i18n-ally.theme.annotationMissing": "#cb1b45",
   "i18n-ally.theme.annotationMissingBorder": "rgba(203, 27, 69, 0.5)",
   "yaml.schemas": {
-    "types/schema/i18n.json": "locales/*.yaml"
-  }
+    "@types/schema/i18n.json": "locales/*.yaml"
+  },
+  "i18n-ally.keystyle": "nested"
 }

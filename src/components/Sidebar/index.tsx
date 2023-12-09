@@ -35,8 +35,13 @@ const Nav = styled(List, {
   }),
 );
 
-const Sidebar: FC<{ open: boolean }> = ({ open }) => {
+interface SidebarProps {
+  open: boolean;
+}
+
+const Sidebar: FC<SidebarProps> = ({ open }) => {
   const [expands, setExpands] = useState<string[]>([]);
+  const { i18n } = useTranslation();
 
   return (
     <Nav component="nav" open={open}>
@@ -45,6 +50,7 @@ const Sidebar: FC<{ open: boolean }> = ({ open }) => {
           expands={expands}
           key={idx}
           props={item}
+          root={`/${i18n.language}`}
           setExpands={setExpands}
         />
       ))}

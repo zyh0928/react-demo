@@ -1,12 +1,13 @@
-import CssBaseline from "@mui/material/CssBaseline";
-import ThemeProvider from "@mui/material/styles/ThemeProvider";
-import { Outlet } from "react-router-dom";
+import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { enUS, zhCN } from "@mui/material/locale";
 
 import { themes } from "@/styles";
 
-import Header from "#/HeadBar";
+import Header from "#/Header";
 import Sidebar from "#/Sidebar";
+import { langs } from "~/variables.json";
 
+import type { Localization } from "@mui/material/locale";
 import type { FC } from "react";
 
 const Container = styled(Box)(({ theme }) => ({
@@ -33,28 +34,49 @@ const Container = styled(Box)(({ theme }) => ({
   height: "100%",
 }));
 
-const Content = styled(Box)(({ theme }) => ({
+const Content = styled(Box)({
   gridArea: "content",
-  overflow: "hidden auto",
-  padding: theme.spacing(3),
-}));
+  overflow: "hidden scroll",
+});
+
+const lng = langs[0].code;
 
 const App: FC = () => {
+  const { pathname } = useLocation();
+  const { i18n } = useTranslation();
+
   const [open, toggleSide] = useToggle(!0);
 
-  const [mode, setMode] = useState<ThemeMode>("light");
+  const [mode, setMode] = useState("light");
 
-  const theme = useMemo(() => themes[mode], [mode]);
+  const theme = useMemo(() => {
+    let locale: Localization = {};
+
+    switch (i18n.language) {
+      case "zh":
+        locale = zhCN;
+        break;
+      case "en":
+        locale = enUS;
+        break;
+    }
+
+    return createTheme(themes[mode], locale);
+  }, [mode, i18n.language]);
+
+  useEffectOnce(() => {
+    const theme = localStorage.getItem("$theme") ?? "light";
+
+    setMode(theme);
+
+    const [, locale] = pathname.split("/");
+
+    i18n.changeLanguage(locale || lng);
+  });
 
   useUpdateEffect(() => {
     localStorage.setItem("$theme", mode);
   }, [mode]);
-
-  useEffect(() => {
-    const theme = localStorage.getItem("$theme") ?? "light";
-
-    setMode(theme as ThemeMode);
-  }, []);
 
   return (
     <ThemeProvider theme={theme}>

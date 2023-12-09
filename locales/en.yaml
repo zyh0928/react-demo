@@ -1,0 +1,9 @@
+common:
+  error:
+    "404": Page not found
+    "500": Internal server error
+pages:
+  home:
+    title: Allah Akbar!
+validations:
+  required: "{field} is required"

@@ -1,5 +1,3 @@
-import { Outlet } from "react-router-dom";
-
 import NodeOne from "./children/One";
 import NodeTwo from "./children/Two";
 

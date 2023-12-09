@@ -1,5 +1,6 @@
 import { resolve } from "path";
 
+import ViteYaml from "@modyfi/vite-plugin-yaml";
 import React from "@vitejs/plugin-react";
 import AutoImport from "unplugin-auto-import/vite";
 import Unfonts from "unplugin-fonts/vite";
@@ -11,26 +12,12 @@ import mui from "./build/resolvers/mui";
 export default defineConfig(({ mode }) => ({
   base: loadEnv(mode, process.cwd(), "BASE_URL").BASE_URL,
   envPrefix: "DEMO_",
+  esbuild: {
+    drop: mode === "production" ? ["console", "debugger"] : void 0,
+  },
   plugins: [
-    AutoImport({
-      dts: "types/auto-imports.d.ts",
-      eslintrc: {
-        enabled: !0,
-        globalsPropValue: "readonly",
-      },
-      imports: [
-        "react",
-        {
-          "@mui/material": mui,
-          "@mui/material/styles": ["styled", "useTheme"],
-          "react-use": ["useUpdateEffect", "useToggle", "useTitle"],
-        },
-      ],
-    }),
-    React(),
     Unfonts({
       google: {
-        display: "block",
         families: [
           {
             name: "Ubuntu",
@@ -42,8 +29,26 @@ export default defineConfig(({ mode }) => ({
           },
         ],
         injectTo: "body",
-        preconnect: !0,
       },
+    }),
+    ViteYaml(),
+    React(),
+    AutoImport({
+      dts: "@types/auto-imports.d.ts",
+      eslintrc: {
+        enabled: !0,
+        globalsPropValue: "readonly",
+      },
+      imports: [
+        "react",
+        "react-router-dom",
+        "react-i18next",
+        {
+          "@mui/material": mui,
+          "@mui/material/styles": ["styled", "useTheme"],
+          "react-use": ["useToggle", "useUpdateEffect", "useEffectOnce"],
+        },
+      ],
     }),
   ],
   resolve: {
