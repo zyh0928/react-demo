@@ -12,7 +12,7 @@
     "moduleResolution": "Node",
     "noEmit": true,
     "paths": {
-      "#/*": ["src/components/*"],
+      "#/*": ["src/context/*"],
       "$/*": ["src/service/*"],
       "%/*": ["src/pages/*"],
       "@/*": ["src/*"],

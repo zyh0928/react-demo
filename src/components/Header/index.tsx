@@ -2,7 +2,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import TranslateIcon from "@mui/icons-material/Translate";
 import { AppBar } from "@mui/material";
 import { blue, yellow } from "@mui/material/colors";
+import { useTitle } from "react-use";
 
+import Common from "#/common";
 import { langs } from "~/variables.json";
 
 import type { FC, MouseEvent } from "react";
@@ -62,12 +64,20 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
   const navigate = useNavigate();
-  const { i18n, t } = useTranslation();
+  const { i18n, t } = useTranslation<"a" | "b">();
+
   const { pathname } = useLocation();
 
+  const [title, setTitle] = useState("");
   const [menuEl, setMenuEl] = useState<HTMLElement | null>(null);
 
+  const { menus } = useContext(Common);
+
+  useTitle(title);
+
   const open = useMemo(() => Boolean(menuEl), [menuEl]);
+
+  const locale = useMemo(() => i18n.language as I18nCodeType, [i18n.language]);
 
   const toggleLang = (lng: string) => () => {
     i18n.changeLanguage(lng);
@@ -85,6 +95,17 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
     setMenuEl(null);
   };
 
+  useEffect(() => {
+    const [, , route] = pathname.split("/");
+
+    const item = menus?.find((item) => item.path === route);
+
+    const title = item?.label[locale] ?? t("common:error.404");
+
+    setTitle(title);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, locale, menus]);
+
   return (
     <AppBar position="relative" sx={{ gridArea: "header" }}>
       <Toolbar variant="dense">
@@ -99,7 +120,7 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
         </IconButton>
 
         <Typography flexGrow="1" noWrap variant="h5">
-          {t("home.title")}
+          {title}
         </Typography>
 
         <Stack alignItems="center" direction="row" spacing={3} useFlexGap>

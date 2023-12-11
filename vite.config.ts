@@ -20,12 +20,12 @@ export default defineConfig(({ mode }) => ({
       google: {
         families: [
           {
-            name: "Ubuntu",
+            name: "Raleway",
             styles: "wght@300;400;500;700",
           },
           {
             name: "Noto Sans SC",
-            styles: "wght@100;300;400;500;700;900",
+            styles: "wght@300;400;500;700",
           },
         ],
         injectTo: "body",
@@ -53,7 +53,7 @@ export default defineConfig(({ mode }) => ({
   ],
   resolve: {
     alias: {
-      "#": resolve(__dirname, "src/components"),
+      "#": resolve(__dirname, "src/context"),
       $: resolve(__dirname, "src/service"),
       "%": resolve(__dirname, "src/pages"),
       "@": resolve(__dirname, "src"),

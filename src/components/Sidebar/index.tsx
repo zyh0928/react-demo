@@ -1,5 +1,6 @@
+import Common from "#/common";
+
 import MenuItem from "./components/MenuItem";
-import menus from "./props/menus";
 
 import type { FC } from "react";
 
@@ -40,12 +41,14 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = ({ open }) => {
-  const [expands, setExpands] = useState<string[]>([]);
   const { i18n } = useTranslation();
+  const { menus } = useContext(Common);
+
+  const [expands, setExpands] = useState<string[]>([]);
 
   return (
     <Nav component="nav" open={open}>
-      {menus.map((item, idx) => (
+      {menus?.map((item, idx) => (
         <MenuItem
           expands={expands}
           key={idx}

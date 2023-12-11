@@ -1,13 +1,17 @@
 import type { SvgIcon } from "@mui/material";
-import type { ReactNode } from "react";
 
 export {};
 
 declare global {
   interface MenuType {
+    label: I18nType;
+    path: string;
     children?: MenuType[];
     icon?: SvgIcon;
-    label?: ReactNode;
-    path?: string;
+  }
+
+  interface CommonContext {
+    menus: MenuType[];
+    setMenus: (menus: MenuType[]) => void;
   }
 }

@@ -1,10 +1,12 @@
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { enUS, zhCN } from "@mui/material/locale";
 
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 import { themes } from "@/styles";
 
-import Header from "#/Header";
-import Sidebar from "#/Sidebar";
+import Common from "#/common";
+import { getMenus } from "$/user";
 import { langs } from "~/variables.json";
 
 import type { Localization } from "@mui/material/locale";
@@ -48,6 +50,7 @@ const App: FC = () => {
   const [open, toggleSide] = useToggle(!0);
 
   const [mode, setMode] = useState("light");
+  const [menus, setMenus] = useState<MenuType[]>([]);
 
   const theme = useMemo(() => {
     let locale: Localization = {};
@@ -65,6 +68,8 @@ const App: FC = () => {
   }, [mode, i18n.language]);
 
   useEffectOnce(() => {
+    setMenus(getMenus());
+
     const theme = localStorage.getItem("$theme") ?? "light";
 
     setMode(theme);
@@ -79,19 +84,21 @@ const App: FC = () => {
   }, [mode]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <Common.Provider value={{ menus, setMenus }}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
 
-      <Container>
-        <Header mode={mode} setMode={setMode} toggleSide={toggleSide} />
+        <Container>
+          <Header mode={mode} setMode={setMode} toggleSide={toggleSide} />
 
-        <Sidebar open={open} />
+          <Sidebar open={open} />
 
-        <Content component="main">
-          <Outlet />
-        </Content>
-      </Container>
-    </ThemeProvider>
+          <Content component="main">
+            <Outlet />
+          </Content>
+        </Container>
+      </ThemeProvider>
+    </Common.Provider>
   );
 };
 

@@ -50,7 +50,10 @@ const MenuNode: FC<MenuNodeProps> = ({
 }) => {
   const { children, icon: Icon, label, path } = props ?? {};
 
+  const { i18n } = useTranslation();
   const { pathname } = useLocation();
+
+  const locale = useMemo(() => i18n.language as I18nCodeType, [i18n.language]);
 
   const isItem = useMemo(() => !children?.length, [children]);
 
@@ -64,7 +67,7 @@ const MenuNode: FC<MenuNodeProps> = ({
   );
 
   const toggle = () => {
-    setExpands?.((prev) =>
+    setExpands((prev) =>
       prev.includes(to) ? prev.filter((item) => item !== to) : prev.concat(to),
     );
   };
@@ -76,7 +79,7 @@ const MenuNode: FC<MenuNodeProps> = ({
           <Icon />
         </MenuItemIcon>
 
-        <ListItemText primary={label} />
+        <ListItemText primary={label?.[locale]} />
       </MenuItemButton>
     </MenuItem>
   ) : (
@@ -88,7 +91,7 @@ const MenuNode: FC<MenuNodeProps> = ({
           </MenuItemIcon>
 
           <ListItemText
-            primary={label}
+            primary={label?.[locale]}
             sx={{
               color: selected ? "primary.main" : void 0,
             }}

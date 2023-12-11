@@ -1,7 +1,7 @@
 import type { ThemeOptions } from "@mui/material/styles";
 
 const typography: ThemeOptions["typography"] = {
-  fontFamily: "Ubuntu, Noto Sans SC, sans-serif",
+  fontFamily: "Raleway, Noto Sans SC, sans-serif",
 };
 
 export const light: ThemeOptions = {

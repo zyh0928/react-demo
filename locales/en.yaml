@@ -1,7 +1,7 @@
 common:
   error:
-    "404": Page not found
-    "500": Internal server error
+    "404": Not Found
+    "500": Internal Server Error
 pages:
   home:
     title: Allah Akbar!

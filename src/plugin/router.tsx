@@ -3,7 +3,7 @@ import { createBrowserRouter, redirect } from "react-router-dom";
 import App from "@/App";
 import children from "@/routes";
 
-import NotFound from "%/error/NotFound";
+import NotFound from "%/error";
 import { langs } from "~/variables.json";
 
 const lng = langs[0].code;

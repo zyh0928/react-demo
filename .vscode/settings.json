@@ -16,6 +16,7 @@
   "i18n-ally.defaultNamespace": "pages",
   "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.enabledParsers": ["yaml"],
+  "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": "locales",
   "i18n-ally.pathMatcher": "{locale}.yaml",
   "i18n-ally.sortKeys": true,
@@ -26,6 +27,5 @@
   "i18n-ally.theme.annotationMissingBorder": "rgba(203, 27, 69, 0.5)",
   "yaml.schemas": {
     "@types/schema/i18n.json": "locales/*.yaml"
-  },
-  "i18n-ally.keystyle": "nested"
+  }
 }

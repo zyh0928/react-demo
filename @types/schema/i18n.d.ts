@@ -1,7 +1,3 @@
-interface Page {
-  title: string;
-}
-
 interface Error {
   "404": string;
   "500": string;
@@ -11,7 +7,7 @@ interface Common {
   error: Error;
 }
 
-interface Home extends Page {}
+interface Home {}
 
 interface Pages {
   home: Home;

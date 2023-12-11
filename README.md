@@ -14,6 +14,6 @@ Set `Disabled`
 | @@/\* | ./\*              |
 | @/\*  | src/\*            |
 | %/\*  | src/pages/\*      |
-| #/\*  | src/components/\* |
+| #/\*  | src/context/\* |
 | $/\*  | src/service/\*    |
 | ~/\*  | src/assets/\*     |
