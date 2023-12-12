@@ -1,10 +1,12 @@
+import MuiIcon from "@/components/MuiIcon";
+
 import { MenuButton, MenuIcon } from "./Node";
 
 import type { LinkProps } from "react-router-dom";
 
 const MenuItem = styled(ListItem)<Recordable>(({ theme: { palette } }) => ({
   "&.active": {
-    ".MuiSvgIcon-root": {
+    ".MuiIcon-root": {
       color: palette.primary.contrastText,
     },
     backgroundColor: palette.primary.main,
@@ -21,7 +23,7 @@ const RouterLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => (
 interface ItemProps {
   indent: number;
   to: string;
-  icon?: ReactNode;
+  icon?: string;
   title?: string;
 }
 
@@ -29,7 +31,9 @@ const Item: FC<ItemProps> = ({ icon, indent, title, to }) => {
   return (
     <MenuItem component={RouterLink} disablePadding to={to}>
       <MenuButton indent={indent}>
-        <MenuIcon>{icon}</MenuIcon>
+        <MenuIcon>
+          <MuiIcon name={icon ?? ""} />
+        </MenuIcon>
 
         <ListItemText primary={title} />
       </MenuButton>

@@ -1,11 +1,9 @@
-import type { SvgIcon } from "@mui/material";
-
 export {};
 
 declare global {
   type MenuType = Partial<{
     children: MenuType[];
-    icon: SvgIcon;
+    icon: string;
     label: Recordable<string>;
     path: string;
   }>;

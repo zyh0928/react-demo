@@ -36,7 +36,7 @@ const Node: FC<NodeProps> = ({
   root,
   setExpands,
 }) => {
-  const { children, icon: Icon, label, path } = props ?? {};
+  const { children, icon, label, path } = props ?? {};
 
   const { i18n } = useTranslation();
 
@@ -47,7 +47,7 @@ const Node: FC<NodeProps> = ({
   return Array.isArray(children) && children.length ? (
     <Group
       expands={expands}
-      icon={<Icon />}
+      icon={icon}
       indent={indent}
       list={children}
       setExpands={setExpands}
@@ -55,7 +55,7 @@ const Node: FC<NodeProps> = ({
       to={to}
     />
   ) : (
-    <Item icon={<Icon />} indent={indent} title={title} to={to} />
+    <Item icon={icon} indent={indent} title={title} to={to} />
   );
 };
 

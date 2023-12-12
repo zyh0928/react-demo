@@ -1,14 +1,6 @@
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import BalanceIcon from "@mui/icons-material/Balance";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ForestIcon from "@mui/icons-material/Forest";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import SpaIcon from "@mui/icons-material/Spa";
-
 const getMenus = (): MenuType[] => [
   {
-    icon: HomeIcon,
+    icon: "flower-poppy",
     label: {
       en: "Allah Akbar!",
       zh: "家！",
@@ -16,7 +8,7 @@ const getMenus = (): MenuType[] => [
     path: "home",
   },
   {
-    icon: InfoIcon,
+    icon: "weather-dust",
     label: {
       en: "About",
       zh: "关于",
@@ -26,7 +18,7 @@ const getMenus = (): MenuType[] => [
   {
     children: [
       {
-        icon: FavoriteIcon,
+        icon: "heart",
         label: {
           en: "Child 1",
           zh: "子节点 1",
@@ -34,7 +26,7 @@ const getMenus = (): MenuType[] => [
         path: "one",
       },
       {
-        icon: BalanceIcon,
+        icon: "scale-unbalanced",
         label: {
           en: "Child 2",
           zh: "子节点 2",
@@ -42,7 +34,7 @@ const getMenus = (): MenuType[] => [
         path: "two",
       },
     ],
-    icon: AccountTreeIcon,
+    icon: "resistor-nodes",
     label: {
       en: "Node",
       zh: "节点",
@@ -54,31 +46,31 @@ const getMenus = (): MenuType[] => [
       {
         children: [
           {
-            icon: SpaIcon,
+            icon: "spa",
             label: {
               en: "Leaf 1-1",
               zh: "树叶 1-1",
             },
-            path: "one-1",
+            path: "1-1",
           },
         ],
-        icon: SpaIcon,
+        icon: "grass",
         label: {
           en: "Leaf 1",
           zh: "树叶 1",
         },
-        path: "one",
+        path: "1",
       },
       {
-        icon: SpaIcon,
+        icon: "leaf",
         label: {
           en: "Leaf 2",
           zh: "树叶 2",
         },
-        path: "two",
+        path: "2",
       },
     ],
-    icon: ForestIcon,
+    icon: "forest",
     label: {
       en: "Tree",
       zh: "树根",

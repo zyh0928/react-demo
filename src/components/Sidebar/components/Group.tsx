@@ -1,17 +1,19 @@
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
+import MuiIcon from "@/components/MuiIcon";
+
 import Node, { MenuButton, MenuIcon } from "./Node";
 
 import type { Dispatch, SetStateAction } from "react";
 
 interface GroupProps {
   expands: string[];
-  icon: ReactNode;
   indent: number;
   list: MenuType[];
   setExpands: Dispatch<SetStateAction<string[]>>;
   to: string;
+  icon?: string;
   title?: string;
 }
 
@@ -41,7 +43,7 @@ const Group: FC<GroupProps> = ({
       <ListItem disablePadding sx={{ display: "block" }}>
         <MenuButton indent={indent} onClick={toggle}>
           <MenuIcon sx={{ color: selected ? "primary.main" : void 0 }}>
-            {icon}
+            <MuiIcon name={icon ?? ""} />
           </MenuIcon>
 
           <ListItemText
