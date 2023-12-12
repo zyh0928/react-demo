@@ -33,6 +33,7 @@ root: true
 rules:
   # off rules
   "@typescript-eslint/ban-ts-comment": 0
+  react/prop-types: 0
   react/react-in-jsx-scope: 0
 
   # error rules

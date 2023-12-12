@@ -1,9 +1,7 @@
-import type { FC } from "react";
-
 const Home: FC = () => {
   return (
-    <Box>
-      <Typography variant="h3">HOME PAGE</Typography>
+    <Box sx={{ padding: 3 }}>
+      <Typography variant="h3">The Home Page</Typography>
     </Box>
   );
 };

@@ -1,9 +1,9 @@
-import type { FC } from "react";
-
 const About: FC = () => {
+  const data = useLocation();
+
   return (
-    <Box sx={{ minHeight: 1000 }}>
-      <Typography variant="h3">ABOUT PAGE</Typography>
+    <Box sx={{ minHeight: 1200 }}>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </Box>
   );
 };

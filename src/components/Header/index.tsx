@@ -7,7 +7,7 @@ import { useTitle } from "react-use";
 import Common from "#/common";
 import { langs } from "~/variables.json";
 
-import type { FC, MouseEvent } from "react";
+import type { MouseEvent } from "react";
 
 const ModeSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase": {
@@ -77,8 +77,6 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
 
   const open = useMemo(() => Boolean(menuEl), [menuEl]);
 
-  const locale = useMemo(() => i18n.language as I18nCodeType, [i18n.language]);
-
   const toggleLang = (lng: string) => () => {
     i18n.changeLanguage(lng);
 
@@ -100,11 +98,10 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
 
     const item = menus?.find((item) => item.path === route);
 
-    const title = item?.label[locale] ?? t("common:error.404");
+    const title = item?.label?.[i18n.language] ?? t("common:error.404");
 
     setTitle(title);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname, locale, menus]);
+  }, [pathname, menus, i18n.language, t]);
 
   return (
     <AppBar position="relative" sx={{ gridArea: "header" }}>

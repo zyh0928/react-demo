@@ -1,5 +1,3 @@
-import type { FC } from "react";
-
 const Image = styled("img")({
   display: "block",
   margin: "0 auto",
@@ -11,7 +9,7 @@ interface NotFoundProps {
 }
 
 const NotFound: FC<NotFoundProps> = ({ code = 404 }) => (
-  <Box sx={({ spacing }) => ({ padding: spacing(3) })}>
+  <Box sx={{ padding: 3 }}>
     <Image src={`https://http.cat/${code}`} />
   </Box>
 );

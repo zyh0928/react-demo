@@ -1,6 +1,6 @@
 import About from "%/about";
 import Home from "%/home";
-import Node, { NodeOne, NodeTwo } from "%/node";
+import Node, { NodeChild } from "%/node";
 
 import type { RouteObject } from "react-router-dom";
 
@@ -21,12 +21,8 @@ export default [
   {
     children: [
       {
-        element: <NodeOne />,
-        path: "one",
-      },
-      {
-        element: <NodeTwo />,
-        path: "two",
+        element: <NodeChild />,
+        path: ":title",
       },
       {
         element: <Navigate replace to="two" />,

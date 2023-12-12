@@ -10,7 +10,6 @@ import { getMenus } from "$/user";
 import { langs } from "~/variables.json";
 
 import type { Localization } from "@mui/material/locale";
-import type { FC } from "react";
 
 const Container = styled(Box)(({ theme }) => ({
   "& ::-webkit-scrollbar": {

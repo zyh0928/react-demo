@@ -3,12 +3,12 @@ import type { SvgIcon } from "@mui/material";
 export {};
 
 declare global {
-  interface MenuType {
-    label: I18nType;
+  type MenuType = Partial<{
+    children: MenuType[];
+    icon: SvgIcon;
+    label: Recordable<string>;
     path: string;
-    children?: MenuType[];
-    icon?: SvgIcon;
-  }
+  }>;
 
   interface CommonContext {
     menus: MenuType[];
