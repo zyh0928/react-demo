@@ -1,7 +1,7 @@
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
-import MuiIcon from "@/components/MuiIcon";
+import MdiIcon from "@/components/MdiIcon";
 
 import Node, { MenuButton, MenuIcon } from "./Node";
 
@@ -43,7 +43,7 @@ const Group: FC<GroupProps> = ({
       <ListItem disablePadding sx={{ display: "block" }}>
         <MenuButton indent={indent} onClick={toggle}>
           <MenuIcon sx={{ color: selected ? "primary.main" : void 0 }}>
-            <MuiIcon name={icon ?? ""} />
+            <MdiIcon name={icon} />
           </MenuIcon>
 
           <ListItemText

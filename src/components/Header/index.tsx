@@ -4,6 +4,8 @@ import { AppBar } from "@mui/material";
 import { blue, yellow } from "@mui/material/colors";
 import { useTitle } from "react-use";
 
+import SvgIcon from "@/components/SvgIcon";
+
 import Common from "#/common";
 import { langs } from "~/variables.json";
 
@@ -102,7 +104,6 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
 
     setTitle(title);
   }, [pathname, menus, i18n.language, t]);
-
   return (
     <AppBar position="relative" sx={{ gridArea: "header" }}>
       <Toolbar variant="dense">
@@ -148,7 +149,11 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
           >
             {langs.map(({ code, label }) => (
               <MenuItem key={code} onClick={toggleLang(code)}>
-                {label}
+                <ListItemIcon>
+                  <SvgIcon name={code} />
+                </ListItemIcon>
+
+                <ListItemText>{label}</ListItemText>
               </MenuItem>
             ))}
           </Menu>

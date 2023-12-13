@@ -1,4 +1,4 @@
-import MuiIcon from "@/components/MuiIcon";
+import MdiIcon from "@/components/MdiIcon";
 
 import { MenuButton, MenuIcon } from "./Node";
 
@@ -32,7 +32,7 @@ const Item: FC<ItemProps> = ({ icon, indent, title, to }) => {
     <MenuItem component={RouterLink} disablePadding to={to}>
       <MenuButton indent={indent}>
         <MenuIcon>
-          <MuiIcon name={icon ?? ""} />
+          <MdiIcon name={icon} />
         </MenuIcon>
 
         <ListItemText primary={title} />

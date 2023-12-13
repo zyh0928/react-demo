@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 /// <reference types="@modyfi/vite-plugin-yaml/modules" />
+/// <reference types="vite-plugin-svgr/client" />
 
 import type { I18nextProviderProps } from "i18next";
 

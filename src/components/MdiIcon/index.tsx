@@ -2,12 +2,12 @@ import Icon from "@mui/material/Icon";
 
 import type { IconProps } from "@mui/material";
 
-interface MuiIconProps {
-  name: string;
+interface MdiIconProps {
+  name?: string;
   props?: IconProps;
 }
 
-const MuiIcon: FC<MuiIconProps> = ({ name, props }) => (
+const MdiIcon: FC<MdiIconProps> = ({ name = "", props }) => (
   <Icon
     baseClassName="mdi"
     className={`mdi-${name}`}
@@ -16,4 +16,4 @@ const MuiIcon: FC<MuiIconProps> = ({ name, props }) => (
   />
 );
 
-export default MuiIcon;
+export default MdiIcon;
