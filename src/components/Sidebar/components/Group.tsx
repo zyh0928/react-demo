@@ -1,8 +1,3 @@
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-
-import MdiIcon from "@/components/MdiIcon";
-
 import Node, { MenuButton, MenuIcon } from "./Node";
 
 import type { Dispatch, SetStateAction } from "react";
@@ -53,7 +48,7 @@ const Group: FC<GroupProps> = ({
             }}
           />
 
-          {expand ? <ExpandMore /> : <ExpandLess />}
+          <MdiIcon name={expand ? "chevron-down" : "chevron-up"} />
         </MenuButton>
       </ListItem>
 

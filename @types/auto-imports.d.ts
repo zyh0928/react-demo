@@ -16,6 +16,7 @@ declare global {
   const ListItemButton: typeof import('@mui/material')['ListItemButton']
   const ListItemIcon: typeof import('@mui/material')['ListItemIcon']
   const ListItemText: typeof import('@mui/material')['ListItemText']
+  const MdiIcon: typeof import('@/components/MdiIcon')['default']
   const Menu: typeof import('@mui/material')['Menu']
   const MenuItem: typeof import('@mui/material')['MenuItem']
   const NavLink: typeof import('react-router-dom')['NavLink']

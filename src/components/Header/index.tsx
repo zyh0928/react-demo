@@ -1,5 +1,3 @@
-import MenuIcon from "@mui/icons-material/Menu";
-import TranslateIcon from "@mui/icons-material/Translate";
 import { AppBar } from "@mui/material";
 import { blue, yellow } from "@mui/material/colors";
 import { useTitle } from "react-use";
@@ -114,7 +112,7 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
           onClick={toggleSide}
           sx={{ mr: 3 }}
         >
-          <MenuIcon />
+          <MdiIcon name="menu" />
         </IconButton>
 
         <Typography flexGrow="1" noWrap variant="h5">
@@ -135,7 +133,7 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
             id="i18n-btn"
             onClick={openI18n}
           >
-            <TranslateIcon />
+            <MdiIcon name="translate" />
           </IconButton>
 
           <Menu

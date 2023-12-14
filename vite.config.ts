@@ -46,6 +46,7 @@ export default defineConfig(({ mode }) => ({
         "react-router-dom",
         "react-i18next",
         {
+          "@/components/MdiIcon": [["default", "MdiIcon"]],
           "@mui/material": mui,
           "@mui/material/styles": ["styled", "useTheme"],
           "react-use": ["useToggle", "useUpdateEffect", "useEffectOnce"],

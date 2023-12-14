@@ -11,6 +11,7 @@
     "ListItemButton": "readonly",
     "ListItemIcon": "readonly",
     "ListItemText": "readonly",
+    "MdiIcon": "readonly",
     "Menu": "readonly",
     "MenuItem": "readonly",
     "NavLink": "readonly",

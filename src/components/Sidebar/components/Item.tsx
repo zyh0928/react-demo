@@ -1,5 +1,3 @@
-import MdiIcon from "@/components/MdiIcon";
-
 import { MenuButton, MenuIcon } from "./Node";
 
 import type { LinkProps } from "react-router-dom";
