@@ -1,15 +1,17 @@
 import SvgIcon from "@mui/material/SvgIcon";
 
 import type { SvgIconProps } from "@mui/material";
-import type { ComponentProps } from "react";
+import type { ElementType } from "react";
 
-type Modules = Recordable<ComponentProps<"svg"> | undefined>;
+type Modules = Recordable<ElementType>;
 
 interface IconProps {
   name?: string;
   props?: SvgIconProps;
   size?: GenericScalar;
 }
+
+const Empty: FC = () => <></>;
 
 const Icon: FC<IconProps> = ({ name = "", props, size }) => {
   const icon = useMemo(() => {
@@ -26,7 +28,7 @@ const Icon: FC<IconProps> = ({ name = "", props, size }) => {
 
   return (
     <SvgIcon
-      component={icon}
+      component={icon ?? Empty}
       inheritViewBox
       sx={{ display: "block", fontSize: size }}
       {...props}

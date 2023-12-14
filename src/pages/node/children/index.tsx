@@ -10,13 +10,9 @@ const NodeChild: FC = () => {
     setColor(color);
   };
 
-  useUpdateEffect(() => {
-    changeColor();
-  }, [title]);
+  useUpdateEffect(changeColor, [title]);
 
-  useEffect(() => {
-    changeColor();
-  }, []);
+  useEffect(changeColor, []);
 
   return (
     <Box bgcolor={color} sx={{ padding: 3 }}>

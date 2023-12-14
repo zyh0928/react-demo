@@ -27,16 +27,17 @@ const Group: FC<GroupProps> = ({
 
   const expand = useMemo(() => expands.includes(to), [expands, to]);
 
-  const toggle = () => {
-    setExpands((prev) =>
-      prev.includes(to) ? prev.filter((item) => item !== to) : prev.concat(to),
-    );
-  };
-
   return (
     <>
       <ListItem disablePadding sx={{ display: "block" }}>
-        <MenuButton indent={indent} onClick={toggle}>
+        <MenuButton
+          indent={indent}
+          onClick={setExpands.bind(null, (prev) =>
+            prev.includes(to)
+              ? prev.filter((item) => item !== to)
+              : prev.concat(to),
+          )}
+        >
           <MenuIcon sx={{ color: selected ? "primary.main" : void 0 }}>
             <MdiIcon name={icon} />
           </MenuIcon>

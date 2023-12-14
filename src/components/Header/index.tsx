@@ -7,8 +7,6 @@ import SvgIcon from "@/components/SvgIcon";
 import Common from "#/common";
 import { langs } from "~/variables.json";
 
-import type { MouseEvent } from "react";
-
 const ModeSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase": {
     "&.Mui-checked": {
@@ -59,10 +57,10 @@ const ModeSwitch = styled(Switch)(({ theme }) => ({
 interface HeaderProps {
   mode: string;
   setMode: (mode: string) => void;
-  toggleSide: () => void;
+  toggleDrawer: () => void;
 }
 
-const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
+const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
   const navigate = useNavigate();
   const { i18n, t } = useTranslation<"a" | "b">();
 
@@ -85,14 +83,6 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
     navigate(`/${lng}/${path}`, { replace: !0 });
   };
 
-  const openI18n = (event: MouseEvent<HTMLButtonElement>) => {
-    setMenuEl(event.currentTarget);
-  };
-
-  const closeI18n = () => {
-    setMenuEl(null);
-  };
-
   useEffect(() => {
     const [, , route] = pathname.split("/");
 
@@ -109,7 +99,7 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
           aria-label="open drawer"
           color="inherit"
           edge="start"
-          onClick={toggleSide}
+          onClick={toggleDrawer}
           sx={{ mr: 3 }}
         >
           <MdiIcon name="menu" />
@@ -131,7 +121,7 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
             aria-haspopup
             color="inherit"
             id="i18n-btn"
-            onClick={openI18n}
+            onClick={({ currentTarget }) => setMenuEl(currentTarget)}
           >
             <MdiIcon name="translate" />
           </IconButton>
@@ -142,7 +132,7 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleSide }) => {
             }}
             anchorEl={menuEl}
             id="i18n-menu"
-            onClose={closeI18n}
+            onClose={setMenuEl.bind(null, null)}
             open={open}
           >
             {langs.map(({ code, label }) => (

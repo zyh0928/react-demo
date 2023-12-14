@@ -45,7 +45,6 @@ export default defineConfig(({ mode }) => ({
             styles: "wght@300;400;500;700",
           },
         ],
-        injectTo: "body",
       },
     }),
     ViteYaml(),

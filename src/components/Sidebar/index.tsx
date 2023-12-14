@@ -41,10 +41,10 @@ const Nav = styled(List, {
 );
 
 interface SidebarProps {
-  open: boolean;
+  drawer: boolean;
 }
 
-const Sidebar: FC<SidebarProps> = ({ open }) => {
+const Sidebar: FC<SidebarProps> = ({ drawer }) => {
   const { i18n } = useTranslation();
   const { menus } = useContext(Common);
   const { pathname } = useLocation();
@@ -69,14 +69,12 @@ const Sidebar: FC<SidebarProps> = ({ open }) => {
     setExpands(expands);
   }, [pathname, i18n.language]);
 
-  useUpdateEffect(() => {
-    resetExpands();
-  }, [i18n.language]);
+  useUpdateEffect(resetExpands, [i18n.language]);
 
   useEffectOnce(resetExpands);
 
   return (
-    <Nav component="nav" open={open}>
+    <Nav component="nav" open={drawer}>
       {menus?.map((item, idx) => (
         <Node
           expands={expands}

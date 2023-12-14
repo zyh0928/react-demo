@@ -9,7 +9,9 @@ declare global {
   }>;
 
   interface CommonContext {
+    loading: boolean;
     menus: MenuType[];
-    setMenus: (menus: MenuType[]) => void;
+    setLoading: (value: boolean) => void;
+    setMenus: (value: MenuType[]) => void;
   }
 }

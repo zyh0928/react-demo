@@ -2,6 +2,7 @@ import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { enUS, zhCN } from "@mui/material/locale";
 
 import Header from "@/components/Header";
+import Loading from "@/components/Loading";
 import Sidebar from "@/components/Sidebar";
 import { themes } from "@/styles";
 
@@ -46,10 +47,13 @@ const App: FC = () => {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
 
-  const [open, toggleSide] = useToggle(!0);
+  const [drawer, toggleDrawer] = useToggle(!0);
 
   const [mode, setMode] = useState("light");
+
   const [menus, setMenus] = useState<MenuType[]>([]);
+
+  const [loading, setLoading] = useState(!1);
 
   const theme = useMemo(() => {
     let locale: Localization = {};
@@ -83,18 +87,20 @@ const App: FC = () => {
   }, [mode]);
 
   return (
-    <Common.Provider value={{ menus, setMenus }}>
+    <Common.Provider value={{ loading, menus, setLoading, setMenus }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
         <Container>
-          <Header mode={mode} setMode={setMode} toggleSide={toggleSide} />
+          <Header mode={mode} setMode={setMode} toggleDrawer={toggleDrawer} />
 
-          <Sidebar open={open} />
+          <Sidebar drawer={drawer} />
 
           <Content component="main">
             <Outlet />
           </Content>
+
+          <Loading loading={loading} />
         </Container>
       </ThemeProvider>
     </Common.Provider>
