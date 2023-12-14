@@ -12,6 +12,22 @@ import mui from "./build/resolvers/mui";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: loadEnv(mode, __dirname, "BASE_URL").BASE_URL,
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: "[ext]/[name].[hash].[ext]",
+        chunkFileNames: "js/[name].[hash].js",
+        entryFileNames: "js/[name].[hash].js",
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return "vendor";
+          } else if (id.includes("src/assets/icons")) {
+            return "icons";
+          }
+        },
+      },
+    },
+  },
   envPrefix: "DEMO_",
   esbuild: {
     drop: mode === "production" ? ["console", "debugger"] : void 0,
