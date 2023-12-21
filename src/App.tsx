@@ -47,7 +47,7 @@ const App: FC = () => {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
 
-  const [drawer, toggleDrawer] = useToggle(!0);
+  const [drawer, toggleDrawer] = useToggle(!1);
 
   const [mode, setMode] = useState("light");
 

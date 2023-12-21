@@ -2,6 +2,7 @@ export default [
   "Box",
   "Button",
   "Collapse",
+  "Divider",
   "Drawer",
   "IconButton",
   "List",

@@ -60,6 +60,7 @@
     "useToggle": "readonly",
     "useTransition": "readonly",
     "useTranslation": "readonly",
-    "useUpdateEffect": "readonly"
+    "useUpdateEffect": "readonly",
+    "Divider": "readonly"
   }
 }

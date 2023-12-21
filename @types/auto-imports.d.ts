@@ -8,6 +8,7 @@ declare global {
   const Box: typeof import('@mui/material')['Box']
   const Button: typeof import('@mui/material')['Button']
   const Collapse: typeof import('@mui/material')['Collapse']
+  const Divider: typeof import('@mui/material')['Divider']
   const Drawer: typeof import('@mui/material')['Drawer']
   const IconButton: typeof import('@mui/material')['IconButton']
   const Link: typeof import('react-router-dom')['Link']
