@@ -63,13 +63,11 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
   const navigate = useNavigate();
   const { i18n, t } = useTranslation<"a" | "b">();
-
+  const { menus } = useContext(Common);
   const { pathname } = useLocation();
 
   const [title, setTitle] = useState("");
   const [menuEl, setMenuEl] = useState<HTMLElement | null>(null);
-
-  const { menus } = useContext(Common);
 
   useTitle(title);
 
@@ -117,7 +115,7 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
 
           <IconButton
             aria-controls={open ? "i18n-menu" : void 0}
-            aria-expanded={open ? "true" : void 0}
+            aria-expanded={open}
             aria-haspopup
             color="inherit"
             id="i18n-btn"
