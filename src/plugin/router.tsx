@@ -1,6 +1,6 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 
-import App from "@/App";
+import App from "@/pages";
 import children from "@/routes";
 
 import NotFound from "%/error";

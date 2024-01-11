@@ -1,6 +1,6 @@
 import { resolve } from "path";
 
-import ViteYaml from "@modyfi/vite-plugin-yaml";
+import Yaml from "@rollup/plugin-yaml";
 import React from "@vitejs/plugin-react";
 import AutoImport from "unplugin-auto-import/vite";
 import Unfonts from "unplugin-fonts/vite";
@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => ({
         ],
       },
     }),
-    ViteYaml(),
+    Yaml(),
     Svgr(),
     React(),
     AutoImport({

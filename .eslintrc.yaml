@@ -11,6 +11,7 @@ extends:
   - plugin:yml/standard
   - plugin:yml/prettier
   - plugin:react/recommended
+  - plugin:react/jsx-runtime
   - plugin:react-hooks/recommended
   - .eslintrc-auto-import.json
 overrides:
@@ -20,8 +21,6 @@ overrides:
     parser: yaml-eslint-parser
 parser: "@typescript-eslint/parser"
 parserOptions:
-  ecmaFeatures:
-    jsx: true
   ecmaVersion: latest
   sourceType: module
 plugins:
@@ -34,7 +33,6 @@ rules:
   # off rules
   "@typescript-eslint/ban-ts-comment": 0
   react/prop-types: 0
-  react/react-in-jsx-scope: 0
 
   # error rules
   import/first: 2
@@ -94,3 +92,5 @@ settings:
   import/resolver:
     node: true
     typescript: true
+  react:
+    version: detect
