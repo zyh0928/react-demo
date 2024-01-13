@@ -46,8 +46,9 @@ interface SidebarProps {
 
 const Sidebar: FC<SidebarProps> = ({ drawer }) => {
   const { i18n } = useTranslation();
-  const { menus } = useContext(Common);
   const { pathname } = useLocation();
+
+  const { menus } = useContext(Common);
 
   const [expands, setExpands] = useState<string[]>([]);
 

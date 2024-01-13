@@ -36,11 +36,11 @@ const Node: FC<NodeProps> = ({
   root,
   setExpands,
 }) => {
-  const { children, icon, label, path } = props ?? {};
+  const { children, icon, label, route } = props ?? {};
 
   const { i18n } = useTranslation();
 
-  const to = useMemo(() => `${root}/${path ?? ""}`, [root, path]);
+  const to = useMemo(() => `${root}/${route ?? ""}`, [root, route]);
 
   const title = useMemo(() => label?.[i18n.language], [label, i18n.language]);
 

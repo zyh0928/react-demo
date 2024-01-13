@@ -5,21 +5,19 @@ import type { ElementType } from "react";
 
 type Modules = Recordable<ElementType>;
 
+const modules: Modules = import.meta.glob("~/icons/loading/*.svg", {
+  as: "react",
+  eager: !0,
+  import: "default",
+});
+
 interface LoadingProps {
   loading: boolean;
 }
 
-const Empty: FC = () => <></>;
-
 const Loading: FC<LoadingProps> = ({ loading }) => {
   const icon = useMemo(() => {
     if (!loading) return;
-
-    const modules: Modules = import.meta.glob("~/icons/loading/*.svg", {
-      as: "react",
-      eager: !0,
-      import: "default",
-    });
 
     const keys = Object.keys(modules);
 
@@ -36,7 +34,7 @@ const Loading: FC<LoadingProps> = ({ loading }) => {
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <SvgIcon
-        component={icon ?? Empty}
+        component={icon ?? (() => <></>)}
         inheritViewBox
         sx={{ display: "block", fontSize: 256 }}
       />

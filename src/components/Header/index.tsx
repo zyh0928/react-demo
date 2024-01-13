@@ -63,8 +63,9 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
   const navigate = useNavigate();
   const { i18n, t } = useTranslation<"a" | "b">();
-  const { menus } = useContext(Common);
   const { pathname } = useLocation();
+
+  const { menus } = useContext(Common);
 
   const [title, setTitle] = useState("");
   const [menuEl, setMenuEl] = useState<HTMLElement | null>(null);
@@ -76,15 +77,15 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
   const toggleLang = (lng: string) => () => {
     i18n.changeLanguage(lng);
 
-    const path = pathname.split("/").slice(2).join("/");
+    const route = pathname.split("/").slice(2).join("/");
 
-    navigate(`/${lng}/${path}`, { replace: !0 });
+    navigate(`/${lng}/${route}`, { replace: !0 });
   };
 
   useEffect(() => {
     const [, , route] = pathname.split("/");
 
-    const item = menus?.find((item) => item.path === route);
+    const item = menus?.find((item) => item.route === route);
 
     const title = item?.label?.[i18n.language] ?? t("common:error.404");
 

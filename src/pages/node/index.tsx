@@ -1,5 +1,3 @@
-import NodeChild from "./children";
-
 interface NodeProps {
   [key: string]: unknown;
 }
@@ -13,5 +11,3 @@ const Node: FC<NodeProps> = () => (
 );
 
 export default Node;
-
-export { NodeChild };

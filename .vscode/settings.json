@@ -14,12 +14,9 @@
     "yaml"
   ],
   "i18n-ally.defaultNamespace": "pages",
-  "i18n-ally.enabledFrameworks": ["react-i18next"],
-  "i18n-ally.enabledParsers": ["yaml"],
+  "i18n-ally.extract.keygenStyle": "PascalCase",
   "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": "locales",
-  "i18n-ally.pathMatcher": "{locale}.yaml",
-  "i18n-ally.sortKeys": true,
   "i18n-ally.sourceLanguage": "zh",
   "i18n-ally.theme.annotation": "#6a4c9c",
   "i18n-ally.theme.annotationBorder": "rgba(106, 76, 156, 0.5)",

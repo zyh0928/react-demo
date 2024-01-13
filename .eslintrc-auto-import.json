@@ -3,6 +3,7 @@
     "Box": "readonly",
     "Button": "readonly",
     "Collapse": "readonly",
+    "Divider": "readonly",
     "Drawer": "readonly",
     "IconButton": "readonly",
     "Link": "readonly",
@@ -60,7 +61,6 @@
     "useToggle": "readonly",
     "useTransition": "readonly",
     "useTranslation": "readonly",
-    "useUpdateEffect": "readonly",
-    "Divider": "readonly"
+    "useUpdateEffect": "readonly"
   }
 }

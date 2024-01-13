@@ -7,7 +7,6 @@ import Sidebar from "@/components/Sidebar";
 import { themes } from "@/styles";
 
 import Common from "#/common";
-import { getMenus } from "$/user";
 import { langs } from "~/variables.json";
 
 import type { Localization } from "@mui/material/locale";
@@ -47,13 +46,11 @@ const App: FC = () => {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
 
-  const [drawer, toggleDrawer] = useToggle(!1);
+  const { loading } = useContext(Common);
+
+  const [drawer, toggleDrawer] = useToggle(!0);
 
   const [mode, setMode] = useState("light");
-
-  const [menus, setMenus] = useState<MenuType[]>([]);
-
-  const [loading, setLoading] = useState(!1);
 
   const theme = useMemo(() => {
     let locale: Localization = {};
@@ -71,15 +68,15 @@ const App: FC = () => {
   }, [mode, i18n.language]);
 
   useEffectOnce(() => {
-    setMenus(getMenus());
-
     const theme = localStorage.getItem("$theme") ?? "light";
 
     setMode(theme);
 
     const [, locale] = pathname.split("/");
 
-    i18n.changeLanguage(locale || lng);
+    const lang = langs.some(({ code }) => code === locale) ? locale : lng;
+
+    i18n.changeLanguage(lang);
   });
 
   useUpdateEffect(() => {
@@ -87,23 +84,21 @@ const App: FC = () => {
   }, [mode]);
 
   return (
-    <Common.Provider value={{ loading, menus, setLoading, setMenus }}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
 
-        <Container>
-          <Header mode={mode} setMode={setMode} toggleDrawer={toggleDrawer} />
+      <Container>
+        <Header mode={mode} setMode={setMode} toggleDrawer={toggleDrawer} />
 
-          <Sidebar drawer={drawer} />
+        <Sidebar drawer={drawer} />
 
-          <Content component="main">
-            <Outlet />
-          </Content>
+        <Content component="main">
+          <Outlet />
+        </Content>
 
-          <Loading loading={loading} />
-        </Container>
-      </ThemeProvider>
-    </Common.Provider>
+        <Loading loading={loading} />
+      </Container>
+    </ThemeProvider>
   );
 };
 
