@@ -1,7 +1,7 @@
 import * as colors from "@mui/material/colors";
 
-const NodeChild: FC = () => {
-  const { title } = useParams();
+const NodeId: FC = () => {
+  const { id } = useParams();
   const [color, setColor] = useState("");
 
   const changeColor = () => {
@@ -10,17 +10,17 @@ const NodeChild: FC = () => {
     setColor(color);
   };
 
-  useUpdateEffect(changeColor, [title]);
+  useUpdateEffect(changeColor, [id]);
 
   useEffect(changeColor, []);
 
   return (
     <Box bgcolor={color} sx={{ padding: 3 }}>
-      <Typography variant="h5">Node Child: {title}</Typography>
+      <Typography variant="h5">Node ID: {id}</Typography>
 
       {JSON.stringify(color)}
     </Box>
   );
 };
 
-export default NodeChild;
+export default NodeId;

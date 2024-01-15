@@ -23,21 +23,25 @@ const Group: FC<GroupProps> = ({
 }) => {
   const { pathname } = useLocation();
 
-  const selected = useMemo(() => pathname.includes(to), [pathname, to]);
+  const selected = useMemo(() => pathname.startsWith(to), [pathname, to]);
 
-  const expand = useMemo(() => expands.includes(to), [expands, to]);
+  const expand = useMemo(
+    () => expands.some((item) => item.startsWith(to)),
+    [expands, to],
+  );
+
+  const toggleExpand = () => {
+    if (expands.some((item) => item.startsWith(to))) {
+      setExpands(expands.filter((item) => !item.startsWith(to)));
+    } else {
+      setExpands(expands.concat(to));
+    }
+  };
 
   return (
     <>
       <ListItem disablePadding sx={{ display: "block" }}>
-        <MenuButton
-          indent={indent}
-          onClick={setExpands.bind(null, (prev) =>
-            prev.includes(to)
-              ? prev.filter((item) => item !== to)
-              : prev.concat(to),
-          )}
-        >
+        <MenuButton indent={indent} onClick={toggleExpand}>
           <MenuIcon sx={{ color: selected ? "primary.main" : void 0 }}>
             <MdiIcon name={icon} />
           </MenuIcon>

@@ -47,8 +47,8 @@ export const getRoutes = async (): Promise<MenuType[]> => {
     {
       id: 301,
       parentId: 3,
-      path: "node/views/child",
-      route: ":title",
+      path: "node/id/index",
+      route: ":id",
       type: "router",
     },
     {
@@ -109,7 +109,7 @@ export const getRoutes = async (): Promise<MenuType[]> => {
         zh: "树叶 A",
       },
       parentId: 4,
-      path: "tree/a",
+      path: "tree/a/index",
       route: "a",
     },
     {
@@ -120,7 +120,7 @@ export const getRoutes = async (): Promise<MenuType[]> => {
         zh: "树叶 B",
       },
       parentId: 4,
-      path: "tree/b",
+      path: "tree/b/index",
       route: "b",
     },
     {

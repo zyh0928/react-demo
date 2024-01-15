@@ -53,22 +53,8 @@ const Sidebar: FC<SidebarProps> = ({ drawer }) => {
   const [expands, setExpands] = useState<string[]>([]);
 
   const resetExpands = useCallback(() => {
-    const paths = pathname.split("/");
-
-    const expands: string[] = [];
-
-    if (paths.length > 3) {
-      paths.slice(2, paths.length - 1).reduce((prev, curr) => {
-        const path = `${prev}/${curr}`;
-
-        expands.push(path);
-
-        return path;
-      }, `/${i18n.language}`);
-    }
-
-    setExpands(expands);
-  }, [pathname, i18n.language]);
+    setExpands([pathname]);
+  }, [pathname]);
 
   useUpdateEffect(resetExpands, [i18n.language]);
 
