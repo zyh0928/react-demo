@@ -25,7 +25,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^14.0.0",
     "react-router-dom": "^6.21.2",
-    "react-use": "^17.4.2",
+    "react-use": "^17.4.3",
     "umi-request": "^1.4.0",
     "uuid": "^9.0.1"
   },
@@ -33,7 +33,7 @@
     "@babel/core": "^7.23.7",
     "@rollup/plugin-yaml": "^4.1.2",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^20.11.0",
+    "@types/node": "^20.11.1",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "@types/uuid": "^9.0.7",
@@ -52,7 +52,7 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^3.1.0",
     "eslint-plugin-yml": "^1.11.0",
-    "prettier": "^3.2.1",
+    "prettier": "^3.2.2",
     "typescript": "^5.3.3",
     "unplugin-auto-import": "^0.17.3",
     "unplugin-fonts": "^1.1.1",
@@ -66,8 +66,8 @@
     "build": "tsc && vite build",
     "dev": "vite",
     "fix": "pnpm format && pnpm lint",
-    "format": "prettier -w src/**/*.{js{,on,x},ts{,x},vue,y{a,}ml}",
-    "lint": "eslint --fix src/**/*.{js{,on,x},ts{,x},vue,y{a,}ml}",
+    "format": "prettier -w .",
+    "lint": "eslint --fix **/*.{js{,on,x},ts{,x},y{a,}ml}",
     "serve": "vite preview"
   },
   "version": "0.1.0"
