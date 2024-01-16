@@ -2,8 +2,5 @@ common:
   error:
     "404": Not Found
     "500": Internal Server Error
-pages:
-  home:
-    title: Allah Akbar!
 validations:
   required: "{field} is required"

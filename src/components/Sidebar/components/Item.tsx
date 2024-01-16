@@ -2,7 +2,7 @@ import { MenuButton, MenuIcon } from "./Node";
 
 import type { LinkProps } from "react-router-dom";
 
-const MenuItem = styled(ListItem)<Recordable>(({ theme: { palette } }) => ({
+const MenuItem = styled(ListItem)<KVMap>(({ theme: { palette } }) => ({
   "&.active": {
     ".MuiIcon-root": {
       color: palette.primary.contrastText,

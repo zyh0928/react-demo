@@ -5,7 +5,7 @@ type TreeOptions = Partial<{
 }>;
 
 /** 将列表转换为树形结构 */
-export const list2tree = <T extends Recordable, P = GenericScalar>(
+export const list2tree = <T extends KVMap, P = StrNum>(
   list: T[],
   parentKey?: P,
   options?: TreeOptions,

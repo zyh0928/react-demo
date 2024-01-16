@@ -3,7 +3,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 import type { SvgIconProps } from "@mui/material";
 import type { ElementType } from "react";
 
-const modules: Recordable<ElementType> = import.meta.glob("~/icons/**/*.svg", {
+const modules: StrMap<ElementType> = import.meta.glob("~/icons/**/*.svg", {
   as: "react",
   eager: !0,
   import: "default",
@@ -12,7 +12,7 @@ const modules: Recordable<ElementType> = import.meta.glob("~/icons/**/*.svg", {
 interface IconProps {
   name?: string;
   props?: SvgIconProps;
-  size?: GenericScalar;
+  size?: StrNum;
 }
 
 const Icon: FC<IconProps> = ({ name = "", props, size }) => {

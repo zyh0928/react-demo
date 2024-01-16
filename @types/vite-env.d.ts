@@ -12,11 +12,11 @@ interface ImportMeta {
 }
 
 declare module "*.yaml" {
-  const data: Recordable;
+  const data: KVMap;
   export default data;
 }
 
 declare module "@@/locales/*.yaml" {
-  const data: I18nSchema;
+  const data: StrMap<string | StrMap>;
   export default data;
 }

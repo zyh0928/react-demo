@@ -18,8 +18,8 @@ i18n.use(initReactI18next).init({
   lng,
   ns: ["pages", "common", "validations"],
   resources: {
-    en: { ...en },
-    zh: { ...zh },
+    en,
+    zh,
   },
 });
 

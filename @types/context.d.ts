@@ -3,17 +3,17 @@ import type { Dispatch, SetStateAction } from "react";
 export {};
 
 declare global {
-  type MenuType = {
-    id: GenericScalar;
+  type MenuType = Partial<{
+    children: MenuType[];
+    icon: string;
+    id: StrNum;
+    label: StrMap;
+    parentId: StrNum;
+    path: string;
+    redirect: boolean;
     route: string;
-    children?: MenuType[];
-    icon?: string;
-    label?: Recordable<string>;
-    parentId?: GenericScalar;
-    path?: string;
-    redirect?: boolean;
-    type?: "all" | "menu" | "router";
-  };
+    type: "all" | "menu" | "router";
+  }>;
 
   interface CommonContext {
     loadRoutes: () => Promise<void>;

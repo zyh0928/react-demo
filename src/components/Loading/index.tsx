@@ -3,7 +3,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 
 import type { ElementType } from "react";
 
-type Modules = Recordable<ElementType>;
+type Modules = StrMap<ElementType>;
 
 const modules: Modules = import.meta.glob("~/icons/loading/*.svg", {
   as: "react",

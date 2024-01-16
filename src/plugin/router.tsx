@@ -14,7 +14,7 @@ import type { RouteObject } from "react-router-dom";
 
 const lng = langs[0].code;
 
-const modules: Recordable<ElementType> = import.meta.glob("%/**/*.tsx", {
+const modules: StrMap<ElementType> = import.meta.glob("%/**/*.tsx", {
   eager: !0,
   import: "default",
 });

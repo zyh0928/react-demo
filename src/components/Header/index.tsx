@@ -134,8 +134,8 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
             onClose={setMenuEl.bind(null, null)}
             open={open}
           >
-            {langs.map(({ code, label }) => (
-              <MenuItem key={code} onClick={toggleLang(code)}>
+            {langs.map(({ code, label }, idx) => (
+              <MenuItem key={idx} onClick={toggleLang(code)}>
                 <ListItemIcon>
                   <SvgIcon name={code} />
                 </ListItemIcon>
