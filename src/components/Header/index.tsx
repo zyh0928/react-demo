@@ -67,10 +67,8 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
 
   const { menus } = useContext(Common);
 
-  const [title, setTitle] = useState("");
+  const [current, setCurrent] = useState<MenuType>();
   const [menuEl, setMenuEl] = useState<HTMLElement | null>(null);
-
-  useTitle(title);
 
   const open = useMemo(() => Boolean(menuEl), [menuEl]);
 
@@ -82,15 +80,31 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
     navigate(`/${lng}/${route}`, { replace: !0 });
   };
 
+  const getCurrentMenu = useCallback(
+    (paths: string[]) => {
+      if (!paths.length) return;
+
+      let node = menus.find((item) => item.route === paths[0]);
+
+      paths.slice(1).forEach((path) => {
+        node = node?.children?.find((item) => item.route === path) ?? node;
+      });
+
+      return node;
+    },
+    [menus],
+  );
+
+  useTitle(current?.label?.[i18n.language] || t("common:error.404"));
+
   useEffect(() => {
-    const [, , route] = pathname.split("/");
+    const paths = pathname.split("/").slice(2);
 
-    const item = menus?.find((item) => item.route === route);
+    const current = getCurrentMenu(paths);
 
-    const title = item?.label?.[i18n.language] ?? t("common:error.404");
+    setCurrent(current);
+  }, [pathname, getCurrentMenu]);
 
-    setTitle(title);
-  }, [pathname, menus, i18n.language, t]);
   return (
     <AppBar position="relative" sx={{ gridArea: "header" }}>
       <Toolbar variant="dense">
@@ -105,7 +119,7 @@ const Header: FC<HeaderProps> = ({ mode, setMode, toggleDrawer }) => {
         </IconButton>
 
         <Typography flexGrow="1" noWrap variant="h5">
-          {title}
+          {current?.label?.[i18n.language] || t("common:error.404")}
         </Typography>
 
         <Stack alignItems="center" direction="row" spacing={3} useFlexGap>
