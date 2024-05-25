@@ -6,9 +6,9 @@ import type { ElementType } from "react";
 type Modules = StrMap<ElementType>;
 
 const modules: Modules = import.meta.glob("~/icons/loading/*.svg", {
-  as: "react",
   eager: !0,
   import: "default",
+  query: "react",
 });
 
 interface LoadingProps {

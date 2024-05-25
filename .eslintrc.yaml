@@ -15,10 +15,11 @@ extends:
   - plugin:react-hooks/recommended
   - .eslintrc-auto-import.json
 ignorePatterns:
-  - node_modules/
-  - dist/
-  - pnpm-lock.yaml
   - "@types/auto-imports.d.ts"
+  - dist/
+  - node_modules/
+  - package.json
+  - pnpm-lock.yaml
 overrides:
   - files:
       - "*.yaml"

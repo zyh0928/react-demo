@@ -4,9 +4,9 @@ import type { SvgIconProps } from "@mui/material";
 import type { ElementType } from "react";
 
 const modules: StrMap<ElementType> = import.meta.glob("~/icons/**/*.svg", {
-  as: "react",
   eager: !0,
   import: "default",
+  query: "react",
 });
 
 interface IconProps {
