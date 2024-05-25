@@ -1,7 +1,7 @@
 import { resolve } from "path";
 
 import Yaml from "@rollup/plugin-yaml";
-import React from "@vitejs/plugin-react";
+import React from "@vitejs/plugin-react-swc";
 import AutoImport from "unplugin-auto-import/vite";
 import Unfonts from "unplugin-fonts/vite";
 import { defineConfig, loadEnv } from "vite";
