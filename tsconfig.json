@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
+    "allowImportingTsExtensions": true,
+    "baseUrl": ".",
+    "isolatedModules": true,
+    "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
-    "skipLibCheck": true,
-    "baseUrl": ".",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "paths": {
       "#/*": ["src/context/*"],
       "$/*": ["src/service/*"],
@@ -14,21 +19,12 @@
       "@@/*": ["./*"],
       "~/*": ["src/assets/*"]
     },
-
-    /* Bundler mode */
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-
-    /* Linting */
+    "skipLibCheck": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "verbatimModuleSyntax": true
   },
   "include": ["src", "@types"],
   "references": [{ "path": "tsconfig.node.json" }]

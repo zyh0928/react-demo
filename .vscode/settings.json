@@ -3,7 +3,6 @@
     "editor.defaultFormatter": "jock.svg"
   },
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": true,
   "eslint.validate": [
     "github-actions-workflow",
     "javascript",
